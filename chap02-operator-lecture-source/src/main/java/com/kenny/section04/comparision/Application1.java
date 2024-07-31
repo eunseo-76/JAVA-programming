@@ -54,6 +54,8 @@ public class Application1 {
         System.out.println("============== 문자값 비교 ===============");
         System.out.println("str1과 str2가 같은지 비교 : " + (str1 == str2));
         System.out.println("str1과 str2가 같지 않은지 비교 : " + (str1 != str2));
+
+        // 문자열은 값을 비교하려면 equals를 사용해야한다
         System.out.println("str1과 str2가 같은지 비교: " + (str1.equals(str2)));
         System.out.println("str1과 str2가 같지 않은지 비교: " + !(str1.equals(str2)));
 //        System.out.println("str1이 str2보다 큰지 비교 : " + (str1 > str2));
