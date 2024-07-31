@@ -1,6 +1,6 @@
 package com.kenny.section04.comparision;
 
-public class Application {
+public class Application1 {
     public static void main(String[] args) {
         /* 비교 연산자에 대해 이해하고 활용할 수 있다. */
 
