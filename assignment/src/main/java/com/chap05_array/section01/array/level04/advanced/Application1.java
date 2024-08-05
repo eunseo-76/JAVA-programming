@@ -13,10 +13,10 @@ public class Application1 {
             // arr[0] 중복 체크 x
             // arr[1] 부터 숫자 이전까지 중복 체크해야함
             //arr[0]~[6]까지 들어가서 indexoutofbounds 에러 발생
-            arr[i] = (int) (Math.random() * 45) + 1;    //i=0, j=0~5 i=1, j=0~5
+            arr[i] = (int) (Math.random() * 45) +1;    //i=0, j=0~5 i=1, j=0~5
             for (int j = 0; j < i; j++) {
                 if(arr[i] == arr[j]){   //arr.length 라고 쓰면 0부터 들어간 숫자가 아니라 5까지 계속 반복하므로 무한 루프 발생함
-                    arr[i] = (int) (int) (Math.random() * 45) + 1;
+                    arr[i] = (int) (int) (Math.random() * 45) +1;
                 }
 //                else{
 ////
