@@ -12,9 +12,9 @@ public class ExceptionTest{
         System.out.println("past : " + ld);
         int[] arr = new int[3];
         for(int i=0; i<2; i++){
-            arr[i] = Integer.parseInt(birth.split("-"));
+//            arr[i] = Integer.parseInt(birth.split("-"));
         }
-        LocalDate past = LocalDate.of();
+//        LocalDate past = LocalDate.of();
 
 
 
