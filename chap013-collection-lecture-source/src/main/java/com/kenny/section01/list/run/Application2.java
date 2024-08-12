@@ -11,7 +11,7 @@ import java.util.List;
 
 public class Application2 {
     public static void main(String[] args) {
-        /* ArrayLisst 사용자 정의 자료형으로 이용하기, 정렬하기 */
+        /* ArrayList 사용자 정의 자료형으로 이용하기, 정렬하기 */
 
         // arraylist의 제네릭 타입을 bookdto로 제한
         List<BookDTO> bookList = new ArrayList<>();
