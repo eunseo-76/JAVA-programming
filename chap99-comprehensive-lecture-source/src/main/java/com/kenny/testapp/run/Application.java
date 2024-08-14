@@ -27,8 +27,12 @@ public class Application {
                 case 1: userService.findAllUser(); break;
                 case 2: userService.findUserByNo(chooseNo()); break;
                 case 3: userService.registUser(signUp()); break;
-                case 4: break;
-                case 5: break;
+                case 4:
+                    User selected = userService.findUserForModify(chooseNo());  // 조회
+                    if(selected == null) continue;  // 메뉴 다시 고르기 (?)
+                    userService.modifyUser(reform(selected));   // 조회 해 온 결과를 서브 메뉴에서
+                    break;
+                case 5: userService.removeUser(chooseNo()); break;
                 case 9:
                     System.out.println("회원 관리 프로그램을 종료합니다.");
                     return;     // 메소드 자체를 종료
@@ -53,7 +57,7 @@ public class Application {
 
         while(true) {
             System.out.println("==== 수정 서브 메뉴 ====");
-            System.out.println("1. 패스워드");
+            System.out.println("1. 아이디");
             System.out.println("2. 나이");
             System.out.println("3. 취미");
             System.out.println("4. 혈액형");

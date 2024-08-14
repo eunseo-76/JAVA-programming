@@ -46,4 +46,51 @@ public class UserService {
         /* DBMS와의 연동을 할 경우 이 시점에 commit, rollback 등의 처리 */
 
     }
+
+    public void removeUser(int no) {
+        int result = userRepository.deleteUser(no);
+
+        if (result == 1) {
+            System.out.println("회원 탈퇴가 완료되었습니다.");
+        } else {
+            System.out.println("입력하신 회원 번호에 해당하는 회원이 없습니다.");
+        }
+        /* DBMS와의 연동을 할 경우 이 시점에 commit, rollback 등의 처리 */
+    }
+
+    public User findUserForModify(int no) {
+
+        User selectedUser = userRepository.selectUserByNo(no);
+        //이 메소드에서 반환하는 selectedUser 값으로 reform() 메소드 호출할 것임.
+        // reform에서 어떤 걸 수정할 지 입력받아서 해당 객체를 수정할 것임.
+
+        // 직접적으로 수정하지 않게 하기 위해 새로운 객체 생성
+        // selectedUser가 가지고 있는 정보들을 newInstance에 옮겨줌
+
+        if (selectedUser != null) {
+             User newInstance = new User();
+             newInstance.setNo(selectedUser.getNo());
+             newInstance.setId(selectedUser.getId());
+             newInstance.setPwd(selectedUser.getPwd());
+             newInstance.setAge(selectedUser.getAge());
+             newInstance.setBloodType(selectedUser.getBloodType());
+             newInstance.setHobbies(selectedUser.getHobbies().clone());
+             // hobbies는 배열이기 때문에 값을 그대로 옮기면 똑같은 배열의 값이 그대로 넘어감.
+            // 클론을 통해 복제해야 함.
+            return newInstance;
+
+        }
+        System.out.println("입력하신 회원 번호에 해당하는 회원이 없습니다.");
+        return null;
+    }
+
+    public void modifyUser(User user) {
+        int result = userRepository.updateUser(user);  // 삽입, 수정, 삭제는 항상 값이 잘 전달되었는지 확인
+
+        if (result == 1) {
+            System.out.println("회원 정보 수정이 완료되었습니다.");
+        } else {
+            System.out.println("입력하신 회원 번호에 해당하는 회원이 없습니다.");
+        }
+    }
 }

@@ -116,4 +116,39 @@ public class UserRepository {
         // 정상 수행 : 1
 
     }
+
+    public int deleteUser(int no) {
+
+        /* soft delete -> 상태 값 변경을 통해 처리    // 삭제된 상태입니다 ~ 처리 하는 것
+        * hard delete -> 실제 삭제 수행
+        * */
+
+        for (int i = 0; i < userList.size(); i++) {
+            if (userList.get(i).getNo() == no) {
+                userList.remove(i); // 메모리 상에서 제거
+
+                // 파일에서도 지워줘야 함 (덮어쓰기)
+                File file = new File(FILE_PATH);
+                saveUsers(file, userList);
+
+                return 1;
+            }
+        }
+
+        return 0;
+    }
+
+    public int updateUser(User user) {
+        for (int i = 0; i < userList.size(); i++) {
+            if(userList.get(i).getNo() == user.getNo()) {
+                userList.set(i, user);
+
+                File file = new File(FILE_PATH);
+                saveUsers(file, userList);
+
+                return 1;
+            }
+        }
+        return 0;
+    }
 }
