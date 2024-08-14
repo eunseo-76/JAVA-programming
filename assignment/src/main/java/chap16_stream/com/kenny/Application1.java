@@ -24,8 +24,9 @@ public class Application1 {
 
                 // 2. IT 부서에서 급여가 5,000 이상인 직원의 이름을 급여 순으로 내림차순 정렬하여 반환
                 List<String> highSalaryIT = employees.stream()
-                        .filter(employee -> employee.getDepartment().equals("IT"))
-                        .filter(employee -> employee.getSalary() >= 5000)
+//                        .filter(employee -> employee.getDepartment().equals("IT"))
+//                        .filter(employee -> employee.getSalary() >= 5000) // 같이 써도 된다
+                        .filter(employee -> employee.getDepartment().equals("IT") && employee.getSalary() >= 5000)
                         .sorted(Comparator.comparing(Employee::getSalary).reversed())
                         .map(Employee::getName)
                         .collect((Collectors.toList()));
@@ -34,8 +35,8 @@ public class Application1 {
 //        // 3. 각 부서별 평균 급여를 계산하여 맵으로 반환
         Map<String, Double> averageSalaryByDept = employees.stream()
                         .collect(Collectors.groupingBy( // function과 collectors를 받는다
-                                Employee::getDepartment,
-                                Collectors.averagingDouble(Employee::getSalary)
+                                Employee::getDepartment,    // 부서별로 grouping 한다
+                                Collectors.averagingDouble(Employee::getSalary) //
                         ));
         System.out.println(allNames); // 출력 예시: "홍길동, 김철수, 이영희, 박민수, 최지현, 한석봉"
         System.out.println(highSalaryIT); // 출력 예시: [이영희, 홍길동, 한석봉]
