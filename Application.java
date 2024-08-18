@@ -5,29 +5,34 @@ import com.jems.playlistia.Aggregate.Playlist;
 import com.jems.playlistia.Aggregate.Queue;
 import com.jems.playlistia.repository.MusicRepository;
 import com.jems.playlistia.repository.PlaylistRepository;
+import com.jems.playlistia.repository.QueueRepository;
 import com.jems.playlistia.service.MusicService;
 
 import javax.script.ScriptContext;
+import java.io.File;
 import java.util.Scanner;
 
 public class Application {
 
-    private static final MusicService musicService = new MusicService();
     private static final MusicRepository musicRepository = new MusicRepository();
-
     private static final PlaylistRepository playlistRepository = new PlaylistRepository();
+    private static final MusicService musicService = new MusicService();
+    private static final QueueRepository queueRepository = new QueueRepository();
 
     private static int selectedMusicNo = 0;
 
     public static void main(String[] args) {
-//        Application app = new Application();
+
         Scanner scanner = new Scanner(System.in);
+
         while (true) {
             System.out.println("===== Playlistia =====");
             System.out.println("세상 모든 음악 여기 모여라! 플레이리스티아에 오신 것을 환영합니다.");
             System.out.println("1. 전체 음악 보기");
             System.out.println("2. 재생 목록 보기");
             System.out.println("3. 플레이리스트 보기");
+            System.out.println("4. 플레이리스트 추가");
+            System.out.println("5. 플레이리스트 삭제");
             System.out.println("9. 플레이리스티아 나가기");
             System.out.print("메뉴 선택 : ");
             int choice = scanner.nextInt();
@@ -45,8 +50,15 @@ public class Application {
                 case 2:
                     musicService.showAllQueue();
                     selectedMusicNo = chooseMusicNo();
+                    Queue selectedQueue = queueRepository.findQueuebyNo(selectedMusicNo);
 
-                    break;  // 1번과 유사하게
+                    if (selectedQueue != null) {
+                        playQueue(selectedQueue); // 비어있는데 작동함
+                    } else {
+                        System.out.println("재생목록이 비어있습니다.");
+                        return;
+                    }
+                    break;
                 case 3:
                     musicService.findAllPlaylist(); // 전체 플레이리스트 보여주기
 
@@ -55,6 +67,20 @@ public class Application {
                     // 선택한 플레이리스트의 음악 목록 출력
                     musicService.findAllMusicInPlaylist(selectedPlaylistNo);
 
+                    break;
+                case 4:
+                    Scanner sc = new Scanner(System.in);
+                    System.out.print("새 플레이리스트의 이름을 입력하세요: ");
+                    String playlistName = sc.nextLine();
+                    musicService.addPlaylist(playlistName);
+                    break;
+                case 5:
+                    musicService.findAllPlaylist();  // 플레이리스트 보여주기
+
+                    Scanner sc2 = new Scanner(System.in);
+                    System.out.println("삭제하려는 플레이리스트의 번호를 입력하세요: ");
+                    int playlistNo = sc2.nextInt();
+                    musicService.deletePlaylist(playlistNo);
                     break;
 
                 case 9:
@@ -135,19 +161,25 @@ public class Application {
                     break;
                 case 2:
                     System.out.println("재생 목록에 추가");
+                    System.out.println("selectedMusicNo: " + selectedMusicNo);
+                    musicService.registQueue(selectedMusicNo);
+
                     break;
                 case 3:
                     System.out.println("플레이리스트에 추가");
                     int playlistNo = choosePlaylistNo();    // 사용자로부터 플레이리스트 번호 입력받기
-                    playlistRepository.addMusicToPlaylist(playlistNo, music);
-                    System.out.println(music.getName() + "이(가) 플레이리스트 " + playlistNo + " 번에 추가되었습니다.");
+                    System.out.println("사용자가 입력한 플레이리스트 번호(playlistNo): " + playlistNo);
+                    musicService.musicToPlaylist(selectedMusicNo, playlistNo);
+
                     break;
                 default:
                     System.out.println("메뉴 번호를 잘못 입력했습니다.");
                     break;
             }
         }
+    }
 
+    private static void playQueue(Queue selectedQueue) {
     }
 
     private static void addQueue() {
