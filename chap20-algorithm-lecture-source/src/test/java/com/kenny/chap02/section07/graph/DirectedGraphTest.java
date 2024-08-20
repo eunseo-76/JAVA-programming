@@ -6,6 +6,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
@@ -34,8 +35,6 @@ class DirectedGraphTest {
         graph.addEdge(3, 4);
         graph.addEdge(4, 6);
     }
-
-
 
     /*
      * 1 → 2 → 5
@@ -95,10 +94,38 @@ class DirectedGraphTest {
         List<Integer> result = graph.bfsUsingQueue(start);
         Assertions.assertEquals(expected, result);
     }
-}
 
-/*
- * 1 → 2 → 5
- * ↓     ↘
- * 3 → 4 → 6
- * */
+    // hasPathDFS 메소드 =====
+    static Stream<Arguments> provideForHasPathDFS() {
+        return Stream.of(
+                Arguments.arguments(1, 2, true),
+                Arguments.arguments(1, 4, true),
+                Arguments.arguments(2, 3, true),
+                Arguments.arguments(5, 6, true),
+                Arguments.arguments(2, 5, false),
+                Arguments.arguments(3, 6, false)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideForHasPathDFS")
+    void testHasPathDFS(Integer start, Integer end, boolean expected) {
+        DirectedGraph<Integer> newGraph = new DirectedGraph<>();
+        newGraph.addVertex(1);
+        newGraph.addVertex(2);
+        newGraph.addVertex(3);
+        newGraph.addVertex(4);
+        newGraph.addVertex(5);
+        newGraph.addVertex(6);
+
+        newGraph.addEdge(1, 2);
+        newGraph.addEdge(2, 4);
+        newGraph.addEdge(1, 3);
+        newGraph.addEdge(5, 6);
+
+        List<Integer> visited = new ArrayList<>();
+        boolean result = newGraph.hasPathDFS(start, end, visited);
+        Assertions.assertEquals(expected, result);
+    }
+
+}
