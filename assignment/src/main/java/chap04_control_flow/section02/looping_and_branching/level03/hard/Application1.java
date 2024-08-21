@@ -8,6 +8,23 @@ public class Application1 {
         System.out.print("2보다 큰 정수를 하나 입력하세요. : ");
         int input = scanner.nextInt();
 
+        while (true) {
+            if (input > 2) {
+
+            }
+        }
+
+        // 1부터 자기 자신까지 차례대로 나누었을 때 나머지가 1과 자기 자신인 수
+        for (int i = 1; i <= input; i++) {
+            // 나머지가 1 : input % i == 1
+            //나머지가 자기 자신 input * i == i
+            if (input % i == 1 || input % i == i) {
+                System.out.println("소수다.");
+            } else {
+                System.out.println("잘못 입력하셨습니다. 다시 입력하세요.");
+            }
+        }
+
 
     }
 }

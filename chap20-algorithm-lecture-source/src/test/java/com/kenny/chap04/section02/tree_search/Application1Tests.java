@@ -1,4 +1,4 @@
-package com.kenny.chap04.section01.graph_search;
+package com.kenny.chap04.section02.tree_search;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -13,30 +13,38 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 
-public class Application4Tests {
-    static String input1, input2;
-    static String output1,output2;
+public class Application1Tests {
+
+    private static String input1, input2;
+    private static String output1, output2;
 
     @BeforeAll
     public static void set() {
 
         /* 예시1 */
-        input1 = "4 5 1\n" +
+        input1 = "7\n" +
+                "1 6\n" +
+                "6 3\n" +
+                "3 5\n" +
+                "4 1\n" +
+                "2 4\n" +
+                "4 7";
+        output1 = "4 6 1 3 1 4 ";
+
+        /* 예시2 */
+        input2 = "12\n" +
                 "1 2\n" +
                 "1 3\n" +
-                "1 4\n" +
                 "2 4\n" +
-                "3 4";
-        output1 = "1 2 4 3 \n" +
-                "1 2 3 4 ";
-        input2 = "5 5 3\n" +
-                "5 4\n" +
-                "5 2\n" +
-                "1 2\n" +
-                "3 4\n" +
-                "3 1";
-        output2 = "3 1 2 5 4 \n" +
-                "3 1 4 2 5 ";
+                "3 5\n" +
+                "3 6\n" +
+                "4 7\n" +
+                "4 8\n" +
+                "5 9\n" +
+                "5 10\n" +
+                "6 11\n" +
+                "6 12";
+        output2 = "1 1 2 3 3 4 4 5 5 6 6 ";
 
     }
 
@@ -46,12 +54,13 @@ public class Application4Tests {
                 arguments(input2, output2)
         );
     }
-    @DisplayName("BFSDFS")
+
+    @DisplayName("tree1")
     @Timeout(value = 1000, unit = TimeUnit.MILLISECONDS)
     @ParameterizedTest
     @MethodSource("provideSource")
-    public void BFSDFStest(String input, String output) throws Exception {
-        String result = Application4.solution(input);
+    public void tree1test(String input, String output) throws Exception {
+        String result = Application1.solution(input);
         Assertions.assertEquals(output, result);
     }
 }
