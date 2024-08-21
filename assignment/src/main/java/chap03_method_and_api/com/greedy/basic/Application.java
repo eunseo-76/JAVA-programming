@@ -1,5 +1,5 @@
-package com.greedy.basic;
-import com.greedy.level01.basic.Calculator;
+package chap03_method_and_api.com.greedy.basic;
+import chap03_method_and_api.com.greedy.level01.basic.Calculator;
 
 public class Application {
     public static void main(String[] args) {

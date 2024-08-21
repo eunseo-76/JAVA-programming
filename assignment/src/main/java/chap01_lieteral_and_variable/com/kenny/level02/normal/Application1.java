@@ -1,4 +1,4 @@
-package com.kenny.level02.normal;
+package chap01_lieteral_and_variable.com.kenny.level02.normal;
 
 public class Application1 {
     public static void main(String[] args) {

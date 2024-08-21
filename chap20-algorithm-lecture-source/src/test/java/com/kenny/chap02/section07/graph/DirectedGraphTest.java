@@ -107,6 +107,8 @@ class DirectedGraphTest {
         );
     }
 
+    // 이미 setUp이 방향 그래프이기 때문에 방문 못 하는 노드가 있음. 그래프 새로 만들 필요 없다.
+
     @ParameterizedTest
     @MethodSource("provideForHasPathDFS")
     void testHasPathDFS(Integer start, Integer end, boolean expected) {
