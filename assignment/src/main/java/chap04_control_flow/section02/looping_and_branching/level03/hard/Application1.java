@@ -5,27 +5,19 @@ import java.util.Scanner;
 public class Application1 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("2보다 큰 정수를 하나 입력하세요. : ");
-        int input = scanner.nextInt();
 
         while (true) {
+            System.out.print("2보다 큰 정수를 하나 입력하세요. : ");
+            int input = scanner.nextInt();
+            // 정수인지 아닌지 판별해야하나? nextInt라서 정수 아니면 안 될 것 같은데
             if (input > 2) {
-
-            }
-        }
-
-        // 1부터 자기 자신까지 차례대로 나누었을 때 나머지가 1과 자기 자신인 수
-        for (int i = 1; i <= input; i++) {
-            // 나머지가 1 : input % i == 1
-            //나머지가 자기 자신 input * i == i
-            if (input % i == 1 || input % i == i) {
-                System.out.println("소수다.");
+                for (int i = 1; i <= input; i++) {
+                    int remainder = input % i;
+                }
             } else {
                 System.out.println("잘못 입력하셨습니다. 다시 입력하세요.");
             }
         }
-
-
     }
 }
 /* 2보다 큰 정수를 하나 입력 받아 그 수가 소수인지 아닌지를 판별해서 출력하세요
@@ -36,7 +28,7 @@ public class Application1 {
  *
  * 소수란?
  * 어떤 수를 1부터 자기 자신까지 차례대로 나누었을 때
- * 나누어 떨어지는 수가 1과 자기 자신만 존재하는 수를 소수라고 한다.
+ * 나누어 떨어지는 수가 1과 자기 자신만 존재하는 수를 소수라고 한다 => 모드 연산한 결과가 0인 값이 1, 자기 자신 뿐
  *
  * -- 입력 예시 --
  * 2보다 큰 정수를 하나 입력하세요 : 7
