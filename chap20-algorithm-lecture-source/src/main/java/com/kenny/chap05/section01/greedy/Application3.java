@@ -27,12 +27,14 @@ public class Application3 {
         /* 종료 시간이 빠른 순, 종료 시간이 동일할 경우 시작 시간이 늦은 순으로
         * 회의 스케줄을 배정한다. */
 
-        // 종료 시간이 빠른 순으로 정렬 - Comparator 익명 클래스 구현 <- 난 이렇게 했는데 답안은 람다식 쓴 듯?
-        Arrays.sort(time, new Comparator<int[]>() {
-            @Override
-            public int compare(int[] o1, int[] o2) {
-                return o1[1] - o2[1];   // 1번 인덱스 기준 오름차순 정렬
-            }
+        // 종료 시간이 빠른 순으로 정렬
+        Arrays.sort(time, (o1, o2) -> {
+
+            // 종료 시간이 같은 회의는 시작 시간 기준으로 내림차순 한다.
+            if(o1[1] == o2[1]) return o2[0] - o1[0];
+
+            /* 종료 시간 기준으로 오름차순 한다. */
+            return o1[1] - o2[1];
         });
 
         int endTime = 0;    // 직전 회의가 끝난 시간을 담아 둘 변수
