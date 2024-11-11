@@ -9,10 +9,17 @@ public class Application1 {
         while (true) {
             System.out.print("2보다 큰 정수를 하나 입력하세요. : ");
             int input = scanner.nextInt();
-            // 정수인지 아닌지 판별해야하나? nextInt라서 정수 아니면 안 될 것 같은데
+
+            int check = 0;
             if (input > 2) {
+                // 소수 : 나누어 떨어지는 수가 1과 자기 자신
                 for (int i = 1; i <= input; i++) {
-                    int remainder = input % i;
+                    if(input % i == 0) check++;
+                }
+                if (check == 2) {
+                    System.out.println("소수다.");
+                } else {
+                    System.out.println("소수가 아니다.");
                 }
             } else {
                 System.out.println("잘못 입력하셨습니다. 다시 입력하세요.");
@@ -36,3 +43,5 @@ public class Application1 {
  * -- 출력 예시 --
  * 소수다.
  * */
+
+// 정답 : 1과 자기 자신을 제외한 나머지 중에서 나누어떨어지는 수가 있으면 소수가 아님, 없으면 소수임
