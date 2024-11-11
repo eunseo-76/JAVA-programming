@@ -68,7 +68,23 @@
 
 ![commit](https://github.com/user-attachments/assets/f4261d3e-7bba-41b8-8b21-5ade721c9da5)
 
-### 5. 기타 규칙
+### 5. 네이밍 규칙
+- 클래스명, 메소드명: PascalCase
+- 메소드명, 필드명: camelCase
+```
+public class User{
+
+    public void fetchUserInfo(){
+
+        private Long userId;
+       private String userName;
+    }
+}
+```
+- DTO명: ~DTO 예) ```UserRequestDTO```
+- 기타 모호한 단어는 도메인 정의서에 작성한다.
+
+### 6. 기타 규칙
 - 가독성을 위해 클래스 첫 줄은 띄어쓰고, 의미 없는 공백은 줄인다.
 - 최대 tap depth = 2
 - magic number 사용 자제, 상수화
@@ -80,8 +96,8 @@
 # :page_with_curl: 프로젝트 설계 문서
 ## 1. DDD 설계
 :point_right: [DDD 설계 보기 - Miro](https://miro.com/app/board/uXjVLNZH4nw=/)
-## 2. 요구사항 명세서
-:point_right: [요구사항 명세서 보기](https://docs.google.com/spreadsheets/d/1oddc-l1flUAqUNzAMt8jnrshAidp2dHnd1w2Sz5JxWA/edit?gid=1147247037#gid=1147247037)
+## 2. 요구사항 명세서, 도메인 정의서
+:point_right: [요구사항 명세서/도메인 정의서 보기](https://docs.google.com/spreadsheets/d/1oddc-l1flUAqUNzAMt8jnrshAidp2dHnd1w2Sz5JxWA/edit?gid=1147247037#gid=1147247037)
 ## 3. DB 모델링
 :point_right: [DB 모델링 보기 - ERDCloud](https://www.erdcloud.com/d/6fp4cuH2E49NQmkaL)
 ## 4. UI 설계
