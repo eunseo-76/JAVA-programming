@@ -6,11 +6,21 @@
 2. 기능
 3. 기능
 ### 기술 스택
-   - JAVA
-   - Vue
-   - MariaDB
-   - MongoDB
-   - Redis
+
+<img src="https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=Spring&logoColor=white">
+<img src="https://img.shields.io/badge/SpringBoot-6DB33F?style=for-the-badge&logo=Spring Boot&logoColor=white">
+<img src="https://img.shields.io/badge/Vue-4FC08D?style=for-the-badge&logo=Vue.js&logoColor=white">
+<img src="https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=MariaDB&logoColor=white">
+<img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=MongoDB&logoColor=white">
+<img src="https://img.shields.io/badge/Jenkins-D24939?style=for-the-badge&logo=Jenkins&logoColor=white">
+<img src="https://img.shields.io/badge/Redis-FF4438?style=for-the-badge&logo=Redis&logoColor=white">
+<img src="https://img.shields.io/badge/Google Gemini-8E75B2?style=for-the-badge&logo=Google Gemini&logoColor=white">
+
+
+
+<img src="https://img.shields.io/badge/표시할이름-색상?style=for-the-badge&logo=기술스택아이콘&logoColor=white">
+
+### 프로젝트 아키텍처
 
 # 팀 소개
 - 김영기
@@ -76,7 +86,6 @@
 :point_right: [DB 모델링 보기 - ERDCloud](https://www.erdcloud.com/d/6fp4cuH2E49NQmkaL)
 ## 4. UI 설계
 :point_right: [UI 설계 보기 - Figma](https://www.figma.com/design/A5tRWd8g8sqnmVyvuK297V/책론을박?node-id=0-1&t=UA7fibrZjfA6hAw0-1)
-
 
 # 기능 수행 테스트
 
