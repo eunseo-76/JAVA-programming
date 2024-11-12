@@ -23,7 +23,7 @@
 - 최두혁
 - 한동주
 
-| | | [![](https://avatars.githubusercontent.com/u/174981455?v=4)](https://github.com/eunseo-76) | | | |
+| ![](https://avatars.githubusercontent.com/u/174981455?v=4)](https://github.com/we4sley | [![](https://avatars.githubusercontent.com/u/174981455?v=4)](https://github.com/kimjm9911)| [![](https://avatars.githubusercontent.com/u/174981455?v=4)](https://github.com/eunseo-76) | [![](https://avatars.githubusercontent.com/u/174981455?v=4)](https://github.com/eJungUiJin) | [![](https://avatars.githubusercontent.com/u/174981455?v=4)](https://github.com/eJungUiJin) | [![](https://avatars.githubusercontent.com/u/174981455?v=4)](https://github.com/HanDJ00) |
 
 
 |:---:|:---:|:---:|:---:|:---:|:---:|
