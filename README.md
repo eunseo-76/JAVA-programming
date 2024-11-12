@@ -22,12 +22,20 @@
 - 정의진
 - 최두혁
 - 한동주
+
+| | | [![](https://avatars.githubusercontent.com/u/174981455?v=4)](https://github.com/eunseo-76) | | | |
+
+
+|:---:|:---:|:---:|:---:|:---:|:---:|
+| 김영기 | 김지민 | 이은서 | 정의진 | 최두혁 | 한동주
+|산책모임|공동구매|회원프로필 및 기타 기능|상담|게시판|채팅|
+
 ## :heavy_exclamation_mark:협업 전략
 ### 1. 브랜치 전략
 ![git-flow](https://github.com/user-attachments/assets/2d7e2ef4-df03-4c5f-8c78-316065100dde)
-- main: 배포용 branch
-- develop: 실질적 main branch
-- feature: 각 기능을 개발하는 branch
+- **main**: 배포용 branch
+- **develop**: 실질적 main branch
+- **feature**: 각 기능을 개발하는 branch
 - 브랜치명은 '태그/도메인/#이슈번호' 의 형식을 따른다.
   - 예) feat/user/#12
 - 기능 단위로 브랜치를 생성하며, 커밋 단위는 가능한 작게 조절한다. 한 번에 여러 클래스를 커밋하지 않고, Pull Request에 너무 많은 커밋이 포함되지 않도록 한다.
@@ -62,8 +70,8 @@
 ![commit](https://github.com/user-attachments/assets/f4261d3e-7bba-41b8-8b21-5ade721c9da5)
 
 ### 5. 네이밍 규칙
-- 클래스명, 메소드명: PascalCase
-- 메소드명, 필드명: camelCase
+- **클래스명**: PascalCase
+- **메소드명**, **필드명**: camelCase
 ```
 public class User{
 
